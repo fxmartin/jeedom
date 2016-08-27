@@ -1,6 +1,8 @@
-FROM debian:jessie
+FROM        resin/rpi-raspbian
+MAINTAINER  F.-X. Martin
 
 RUN apt-get update && apt-get install -y \
+    apt-utils \
     wget \
     unzip \
     mysql-client \
@@ -15,10 +17,7 @@ RUN mkdir -p /usr/share/nginx/www/jeedom
 WORKDIR /usr/share/nginx/www/jeedom
 
 # téléchargement de l'archive
-RUN wget --no-check-certificate -O jeedom.zip https://market.jeedom.fr/jeedom/stable/jeedom.zip && unzip jeedom.zip
-
-# ajout au préalable d'un dossier tmp
-RUN mkdir -p ./tmp
+RUN wget https://github.com/jeedom/core/archive/stable.zip -O /tmp/jeedom.zip && unzip -q /tmp/jeedom.zip -d /root/ && cp -R /root/core-*/* /usr/share/nginx/www/jeedom && rm -rf /root/core-* > /dev/null 2>&1 && rm /tmp/jeedom.zip
 
 # définition des droits utilisateur/groupes/autres de manière récursif
 RUN chmod 755 -R /usr/share/nginx/www/jeedom
@@ -39,6 +38,3 @@ COPY docker-entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
-
-
-
