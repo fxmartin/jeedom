@@ -16,6 +16,10 @@ Multilingual, Jeedom software is already in English language and can be translat
 
 [Jeedom Software] (http://jeedom.fr/index.php)
 
+#Why this fork ?
+
+this repository was forked to keep track of adaptations required to build and run these images on a Raspberry Pi. The various Dockerfiles have been updated to replace the FROM debian:jessie clause by resin/rpi-raspbian. Additional changes have also been introduced to cope with the issues introduced by latest versions of Jeedom. 
+
 #How to use this image
 
 First We have to run a mysql container <= 5.6.21 (Actually there is a bug with PDO and mysql > 5.6.21 so we con't use mysql:latest)
