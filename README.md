@@ -12,7 +12,7 @@ Thanks to Jeedom's Market and the plugin system, Jeedom can be linked to any con
 
 Multilingual, Jeedom software is already in English language and can be translated easily. Through its customizable interface, widgets, views, plugins and user management, each user can create its own view on Jeedom to realize own wishes unique automation installation.
 
-[![Jeedom Logo] (http://jeedom.fr/images/jeedom.jpg)] (http://jeedom.fr/index.php)
+![Jeedom logo](https://www.jeedom.com/site/logo.png)
 
 [Jeedom Software] (http://jeedom.fr/index.php)
 
